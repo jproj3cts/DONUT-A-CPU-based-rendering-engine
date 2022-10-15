@@ -1,4 +1,4 @@
-# CPU-based-redering-engine
+# CPU-based-rendering-engine
 
 >>>Work in Progress.
 
