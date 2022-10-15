@@ -12,4 +12,5 @@ To compile for yourself, simply run g++ donut.c -o donut -lgdi32 after cd-ing in
 
 ## Planned Improvements
 
-  1. Add a buffer to load in pixels all at once (this will stop the flicker seen at the moment).
+  1. Add a buffer to load in pixels all at once after rendering (this will stop the flicker seen at the moment).
+  2. Add user input processing to allow the camera to be moved around in real time.
