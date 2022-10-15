@@ -12,4 +12,4 @@ To compile for yourself, simply run g++ donut.c -o donut -lgdi32 after cd-ing in
 
 ## Planned Improvements
 
-//unfinished section
+  1. Add a buffer to load in pixels all at once (this will stop the flicker seen at the moment).
