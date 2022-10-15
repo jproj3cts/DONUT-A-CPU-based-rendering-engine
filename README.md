@@ -2,7 +2,7 @@
 
 >>>Work in Progress.
 
-So this is just a basic little program I adapted from the code written by Andy Sloane, the original can be found here: https://www.a1k0n.net/2011/07/20/donut-math.html.
+So this is just a basic program I adapted from the code written by Andy Sloane, the original can be found here: https://www.a1k0n.net/2011/07/20/donut-math.html.
 
 The original was written as an obfuscated c program, so was more about form than function. Still it was very elegant in its function.
 
