@@ -68,12 +68,9 @@ int main()
             for(k=0; 1034>k; k+=1) { 
                     rotate_vector(&shapeData[k], offset, phi, theta, 0);
                     project_to_screen(shapeData[k],&v2D,80,5,cameraPos,0,0);
-                    
                     // Draw position vectors.
                     SetPixel(mydc,v2D.u0*12,v2D.u1*12,COLOR);
-                    
                     }
-
             printf("\e[1;1H\e[2J");
             }
     return 0;
