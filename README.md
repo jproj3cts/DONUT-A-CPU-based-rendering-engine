@@ -2,7 +2,9 @@
 
 >>>Work in Progress.
 
-This engine is capable of rendering any 3D shape you can produce a parametric function for and from any distance or angle. My current demos are of a torus and a klein bottle. 
+This engine is capable of rendering any 3D shape you can produce a parametric function for and from any distance or angle. The gif below demos this for a klein bottle. 
+
+![klein bottle]( Media/klein.gif)
 
 I adapted this from the code written by Andy Sloane, the original can be found here: https://www.a1k0n.net/2011/07/20/donut-math.html.
 
