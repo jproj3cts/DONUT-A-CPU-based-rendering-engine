@@ -7,8 +7,6 @@ https://user-images.githubusercontent.com/114860885/196288825-5b2e7a50-eee7-4fd6
 
 I adapted this from the code written by Andy Sloane, the original can be found here: https://www.a1k0n.net/2011/07/20/donut-math.html.
 
-The original was written as an obfuscated c program, so was more about form than function. Still it was very elegant in its function.
-
 To compile for yourself, simply run:
 ```
 g++ donut.c -o donut -lgdi32 
