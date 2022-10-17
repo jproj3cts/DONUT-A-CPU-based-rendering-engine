@@ -1,4 +1,4 @@
-# CPU-based-rendering-engine
+# DONUT-A-CPU-based-rendering-engine
 
 This engine is capable of rendering any 3D shape you can produce a parametric function for and from any distance or angle. The gif below demos this for a klein bottle. 
 
