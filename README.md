@@ -1,6 +1,6 @@
 # DONUT-A-CPU-based-rendering-engine
 
-D.O.N.U.T. (DOS Optimised reNdering Useful Techniques), or - more gramatically corectly - UDONT, is an engine is capable of rendering any 3D shape you can parameterize from any distance or viewing angle. The video below demos this for a klein bottle. 
+D.O.N.U.T. (DOS Optimised reNdering Useful Techniques), or - more gramatically - UDONT, is an engine is capable of rendering any 3D shape you can parameterize from any distance or viewing angle. The video below demos this for a klein bottle. 
 
 https://user-images.githubusercontent.com/114860885/196288825-5b2e7a50-eee7-4fd6-adde-f124875d1ea0.mp4
 
