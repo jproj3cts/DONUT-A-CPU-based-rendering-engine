@@ -15,5 +15,7 @@ g++ donut.c -o donut -lgdi32
 ```
 after cd-ing into the same directory as the donut.c file.
 
+>>>Note this application only words on windows.
+
 ## Planned Improvements
   1. Add user input processing to allow the camera to be moved around in real time.
