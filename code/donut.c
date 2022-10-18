@@ -16,6 +16,14 @@ typedef struct Vector3D {
     float u2;
 } vector3D;
 
+typedef struct Vector5D {
+    float u0;
+    float u1;
+    float u2;
+    float r0;
+    float r1;
+} vector5D;
+
 
 typedef struct Vector2D {
     float u0;
@@ -23,7 +31,7 @@ typedef struct Vector2D {
 } vector2D;
 
 
-void project_to_screen(vector3D v3D, vector2D *v2D, float screen_width, float screen_dist, vector3D pos, float ptheta, float pphi);
+void project_to_screen(vector3D v3D, vector2D *v2D, vector5D pos);
 void translate_vector(vector3D *v3D, vector3D translation);
 void rotate_vector(vector3D *v3D, vector3D offset, float alpha, float beta, float gamma);
 void gen_donut_vector(vector3D *v3D, float r1, float r2, float i, float j, vector3D offset);
@@ -43,21 +51,28 @@ int main()
     offset.u0 = 20;
     offset.u1 = 0;
     offset.u2 = 0;
-    vector3D cameraPos;
+    vector5D cameraPos;
+    vector5D oldCameraPos;
     cameraPos.u0 = 0;
     cameraPos.u1 = 0;
     cameraPos.u2 = 0;
+    cameraPos.r0 = 0;
+    cameraPos.r1 = 0;
     vector3D shapeData[1034];
 
+    char key_code;
+
     //COLORREF COLOR= RGB(135, 206, 235);
-    COLORREF WHITE= RGB(255, 255, 255);
-    COLORREF BLACK= RGB(12,12,12);  
+    COLORREF WHITE = RGB(255, 255, 255);
+    COLORREF BLACK = RGB(12,12,12);  
+    COLORREF MAGENTA= RGB(231,72,86); 
     HWND myconsole = GetConsoleWindow();
     //Get a handle to device context
     HDC mydc = GetDC(myconsole);
 
     
 
+    //system("color C2");
     system("color 0");
 
     int k = 0;
@@ -73,18 +88,57 @@ int main()
         }
 
     for(;;){
-            for(k=0; 1034>k; k+=1) { 
+            
+            oldCameraPos = cameraPos;
+            if ( _kbhit() ){
+                key_code = _getch();
+                if (key_code == 'w'){
+                     cameraPos.u0 += 0.5;
+                    }
+                if (key_code == 's'){
+                      cameraPos.u0 -= 0.5;
+                    }
+                if (key_code == 'a'){
+                     cameraPos.u1 += 0.5;
+                    }
+                if (key_code == 'd'){
+                      cameraPos.u1 -= 0.5;
+                    }
+                if (key_code == 'z'){
+                     cameraPos.u2 += 0.5;
+                    }
+                if (key_code == 'x'){
+                      cameraPos.u2 -= 0.5;
+                    }
+                if (key_code == 'i'){
+                     cameraPos.r0 += 1;
+                    }
+                if (key_code == 'k'){
+                      cameraPos.r0 -= 1;
+                    }
+                if (key_code == 'j'){
+                     cameraPos.r1 += 1;
+                    }
+                if (key_code == 'l'){
+                      cameraPos.r1 -= 1;
+                    }
+                }
 
+                
+            for(k=0; 1034>k; k+=1) { 
                     // Erase old data
-                    project_to_screen(shapeData[k],&v2D,80,5,cameraPos,0,0);
+                    project_to_screen(shapeData[k], &v2D, oldCameraPos);
                     SetPixel(mydc,v2D.u0*12,v2D.u1*12,BLACK);
 
                     // Draw new data.
                     rotate_vector(&shapeData[k], offset, phi, theta, 0);
-                    project_to_screen(shapeData[k],&v2D,80,5,cameraPos,0,0);
+                    project_to_screen(shapeData[k], &v2D, cameraPos);
                     SetPixel(mydc,v2D.u0*12,v2D.u1*12,WHITE);
-                    
+
                     }
+
+            
+
 
             //printf("\e[1;1H\e[2J");
             }
@@ -93,8 +147,11 @@ int main()
 
 
 // Function to handle projecting 3D object to 2D screen.
-void project_to_screen(vector3D v3D, vector2D *v2D, float screen_width, float screen_dist, vector3D pos, float ptheta, float pphi){
-    float k1 = screen_width*screen_dist*3/(8*(2+1)); // 2 and 1 are torus radii.
+void project_to_screen(vector3D v3D, vector2D *v2D, vector5D pos){
+    //float k1 = screen_width*screen_dist*3/(8*(2+1)); // 2 and 1 are torus radii.
+    float screen_width = 100;
+    float screen_dist = 5;
+    float k1 = 100;
     float z = 1/(screen_dist + (v3D.u0-pos.u0)); //screen_distr = k2
     v2D->u0 = k1*z*(v3D.u1-pos.u1) + screen_width/2;
     v2D->u1 = k1*z*(v3D.u2-pos.u2) + screen_width/2;
