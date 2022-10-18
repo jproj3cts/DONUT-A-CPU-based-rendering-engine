@@ -1,4 +1,4 @@
-//g++ donut.c -o donut -lgdi32
+//gcc donut.c -o donut -lgdi32
 #include <windows.h>
 #include <conio.h>
 #include <stdio.h>
