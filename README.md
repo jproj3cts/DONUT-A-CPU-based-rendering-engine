@@ -9,7 +9,7 @@ I adapted this from the code written by Andy Sloane, the original can be found h
 
 To compile for yourself, simply run:
 ```
-g++ donut.c -o donut -lgdi32 
+gcc donut.c -o donut -lgdi32 
 ```
 after cd-ing into the same directory as the donut.c file.
 
